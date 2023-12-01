@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="272" height="732" viewBox="0 0 272 732">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="長方形_121" data-name="長方形 121" width="272" height="732" transform="translate(1648 1067)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="bk_mission" transform="translate(-1648 -1067)" clip-path="url(#clip-path)">
+    <g id="mark" transform="translate(1647.985 785.634)">
+      <path id="パス_264" data-name="パス 264" d="M0,677.8,239.149,815.871V264.1L0,126.027Z" transform="translate(0 173.521)" fill="#f3f3f3"/>
+      <path id="パス_265" data-name="パス 265" d="M113.413,743.276,335.356,871.414,813.2,595.531,113.413,191.506Z" transform="translate(156.152 263.675)" fill="#f3f3f3"/>
+      <path id="パス_266" data-name="パス 266" d="M311.413,608.6,554.246,748.8v-548.2L311.413,60.4Z" transform="translate(428.769 83.168)" fill="#f3f3f3"/>
+      <path id="パス_267" data-name="パス 267" d="M481.8,0,7.048,274.1l693.014,400.11v-548.2Z" transform="translate(9.705 0)" fill="#f3f3f3"/>
+    </g>
+  </g>
+</svg>

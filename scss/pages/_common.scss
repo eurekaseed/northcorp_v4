@@ -1,0 +1,48 @@
+@use "../global" as g;
+
+/*!
+page > common
+------------------------------
+*/
+
+/*!
+フォントサイズ
+*/
+$baseFontSize: 16;
+
+@function rem($pixels) {
+  @return calc($pixels / $baseFontSize * 1rem);
+}
+
+.lead {
+  font-weight: bold;
+  font-size: 1.25rem;
+
+  @include g.mq_max(md) {
+    font-size: 1.1rem;
+  }
+}
+
+.toppage {
+  .lead {
+    margin-bottom: var(--min-gap);
+  }
+}
+
+// .subpage {
+//   .lead {
+//     margin-bottom: var(--min-gap);
+
+//     @include g.mq_max(md) {
+//       margin-bottom: var(--min-gap);
+//     }
+//   }
+// }
+
+.gap__bottom {
+  margin-bottom: var(--min-gap);
+}
+
+.signature {
+  text-align: right;
+}

@@ -1,0 +1,240 @@
+@use "../global" as g;
+
+/*!
+project > p-keyvisual
+------------------------------
+*/
+
+/*
+フォントサイズ計算 */
+$baseFontSize: 16;
+
+@function rem($pixels) {
+  @return calc($pixels / $baseFontSize * 1rem);
+}
+
+/*! キービジュアル、ページタイトル */
+
+.p-keyvisual {
+  display: grid;
+  gap: 0;
+
+  .kvimg {
+    grid-area: 1/-1;
+  }
+
+  .pagetitle,
+  .inner {
+    z-index: 2;
+  }
+}
+
+.toppage .pagetitle,
+.subpage .inner {
+  grid-area: 1/-1;
+}
+
+.kvimg img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+}
+
+.toppage .p-keyvisual {
+  width: 100%;
+  aspect-ratio: 2/1;
+
+  @include g.mq() {
+    width: 100%;
+    aspect-ratio: 16/5;
+    height: auto;
+  }
+
+  @include g.mqx2() {
+    aspect-ratio: 16/5;
+  }
+}
+
+.subpage .p-keyvisual {
+  width: 100%;
+  aspect-ratio: 16/5;
+  overflow: hidden;
+
+  @include g.mq() {
+    width: 100%;
+    // aspect-ratio: 320/73;
+  }
+
+  @include g.mqx2() {
+    //aspect-ratio: 320/73;
+  }
+
+  //TODO:backgroundを各ページ階層下に移動:ナシ
+  .kvimg {
+    clip-path: polygon(47% 0, 100% 0, 100% 100%, 20% 100%);
+  }
+}
+
+/*!
+各ページキービジュアル画像
+------------------------------
+*/
+
+.product .kvimg {
+  background: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.7)
+    ),
+    url("/img/product/img_product.png") 16vw 50% no-repeat;
+  background-size: cover;
+
+  @include g.mq(md) {
+    background: url("/img/product/img_product.png") top right no-repeat;
+    background-size: 100%;
+  }
+}
+
+.wire .kvimg {
+  background: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.7)
+    ),
+    url("/img/product/img_wire.png") 16vw 50% no-repeat;
+  background-size: cover;
+
+  @include g.mq(md) {
+    background: url("/img/product/img_wire.png") top right no-repeat;
+    background-size: 100%;
+  }
+}
+
+.ttt {
+  @include g.bgurl(mission/img_mission);
+}
+
+.wall .kvimg {
+  background: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.7)
+    ),
+    url("/img/product/img_wall.png") 16vw 50% no-repeat;
+  background-size: cover;
+
+  @include g.mq(md) {
+    background: url("/img/product/img_wall.png") top right no-repeat;
+    background-size: 100%;
+  }
+}
+
+.steel .kvimg {
+  background: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.7)
+    ),
+    url("/img/product/img_steel.png") 16vw 50% no-repeat;
+  background-size: cover;
+
+  @include g.mq(md) {
+    background: url("/img/product/img_steel.png") top right no-repeat;
+    background-size: 100%;
+  }
+}
+
+.cable .kvimg {
+  background: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.7)
+    ),
+    url("/img/product/img_cable.png") 16vw 50% no-repeat;
+  background-size: cover;
+
+  @include g.mq(md) {
+    background: url("/img/product/img_cable.png") top right no-repeat;
+    background-size: 100%;
+  }
+}
+
+.ourproduct .kvimg {
+  background: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.7)
+    ),
+    url("/img/product/img_ourproducts.png") 16vw 50% no-repeat;
+  background-size: cover;
+
+  @include g.mq(md) {
+    background: url("/img/product/img_ourproducts.png") top right no-repeat;
+    background-size: 100%;
+  }
+}
+
+.mission .kvimg {
+  background: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.7)
+    ),
+    url("/img/img_mission.png") 16vw 50% no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  @include g.mq(md) {
+    background: url("/img/img_mission.png") center right no-repeat;
+    background-size: 100%;
+  }
+}
+
+.company .kvimg {
+  background: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.7)
+    ),
+    url("/img/company/img_company.png") 16vw 50% no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  @include g.mq(md) {
+    background: url("/img/company/img_company.png") center right no-repeat;
+    background-size: 100%;
+  }
+}
+
+.recruit .kvimg {
+  background: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.7)
+    ),
+    url("/img/recruit/img_recruit.png") 16vw 50% no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  @include g.mq(md) {
+    background: url("/img/recruit/img_recruit.png") center right no-repeat;
+    background-size: 100%;
+  }
+}
+
+.newsblog .kvimg {
+  background: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.7)
+    ),
+    url("/img/news/img_newsblog.png") 16vw 50% no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  @include g.mq(md) {
+    background: url("/img/news/img_newsblog.png") center right no-repeat;
+    background-size: 100%;
+  }
+}

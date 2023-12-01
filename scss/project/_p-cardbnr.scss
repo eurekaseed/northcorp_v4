@@ -1,0 +1,250 @@
+@use "../global" as g;
+
+/*!
+project > p-cardbnr
+------------------------------
+*/
+
+/*
+フォントサイズ計算 */
+$baseFontSize: 16;
+
+@function rem($pixels) {
+  @return calc($pixels / $baseFontSize * 1rem);
+}
+
+/*!
+トップページ 製品ラインナップバナー */
+
+.p-lineupcard {
+  width: 100%;
+  height: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  @include g.mq_max(md) {
+    width: clamp(80%, 350px, 100%);
+    height: auto;
+  }
+
+  .card-thum {
+    flex-grow: 1;
+    width: 100%;
+    height: auto;
+    @media screen and (max-width: 450px) {
+      width: 100%;
+      height: auto;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 2/1;
+      object-fit: cover;
+    }
+  }
+}
+
+/*!
+トップページ製品ラインナップのピックアップカード  */
+
+// .wrap-lineup-pickup {
+//   background-color: #fff;
+// }
+
+.toppage .p-lineup-pickup,
+.entryindex .p-lineup-pickup {
+  flex-direction: column;
+  // ボトムの本文を隠す
+  p.content {
+    @media screen and (min-width: 800px) and (max-width: 1060px) {
+      display: none;
+    }
+  }
+}
+
+/*!
+productページの幅広ピックアップコーナーレイアウト */
+
+.product .p-lineup-pickup {
+  flex-direction: column;
+
+  // @media screen and (min-width: 900px)
+  @include g.mq(md) {
+    flex-direction: row;
+  }
+}
+
+// 記事一覧ページの横並びレイアウト
+
+.entryindex .rowCards {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  // @media screen and (min-width: 900px)
+  @include g.mq(md) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: start;
+    gap: 2vw;
+    & > * {
+      width: 30%;
+    }
+  }
+
+  span.content {
+    overflow: hidden;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-box-orient: vertical; // line-clampバグ対応
+    -webkit-line-clamp: 2; // 行数制限
+
+    @include g.mq(lg) {
+      white-space: normal;
+      display: -webkit-box;
+      -webkit-box-orient: vertical; // line-clampバグ対応
+      -webkit-line-clamp: 2; // 行数制限
+    }
+  }
+}
+
+.p-lineup-pickup {
+  position: relative;
+  // display: grid;
+  display: flex;
+  background-color: #fff;
+  width: auto;
+  height: auto;
+  margin-bottom: 0;
+
+  @include g.mq_max(md) {
+    margin-bottom: 2rem;
+  }
+
+  .boxTop {
+    //サムネ部分
+    display: grid;
+
+    & > * {
+      grid-area: 1/1/2; // 1ブロックを複数重ねる
+    }
+
+    h2 {
+      align-self: start;
+      justify-self: start;
+      display: inline-block;
+      font-size: clamp(1rem, 1.5vw, 1.5rem);
+      font-weight: bold;
+      letter-spacing: 0.08em;
+      padding: 1vw;
+      text-align: center;
+      background-color: var(--color-bg-button);
+      color: #fff;
+      position: relative;
+      z-index: 2;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+
+      @include g.mq_max(md) {
+        aspect-ratio: 4/1;
+      }
+
+      @include g.mq(md) {
+        aspect-ratio: 8/5;
+      }
+
+      // @media screen and (min-width: 1200px) {
+      //   aspect-ratio: 8/6;
+      // }
+    }
+
+    .c-arrow-btn {
+      align-self: end;
+      justify-self: end;
+
+      @include g.mq_max(md) {
+        display: none;
+      }
+    }
+
+    // md以下SP版のみ表示
+    .entry_date {
+      color: #fff;
+    }
+    a.entry_title {
+      display: block;
+      color: #fff;
+      align-self: end;
+      padding: 2.8rem 1rem 1rem 1rem;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0))
+        bottom/100% 80% no-repeat;
+
+      span {
+        display: block;
+      }
+
+      @include g.mq(md) {
+        display: none;
+      }
+    }
+  }
+
+  .boxBottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fff;
+    text-align: left;
+    padding: 1.8vw;
+    overflow: hidden;
+    gap: 0.7rem;
+
+    // md以上表示
+    a.entry_title {
+      display: block;
+
+      .entry_date {
+        display: block;
+      }
+
+      @include g.mq_max(md) {
+        display: none;
+      }
+    }
+
+    p.content {
+      color: var(--color-key);
+      //一行の場合
+      // text-overflow: ellipsis; // ellipsis：省略記号（…）
+      // white-space: nowrap;
+      overflow: hidden;
+      white-space: normal;
+      display: -webkit-box;
+      -webkit-box-orient: vertical; // line-clampバグ対応
+      -webkit-line-clamp: 2; // 行数制限
+
+      @include g.mq(lg) {
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-box-orient: vertical; // line-clampバグ対応
+        -webkit-line-clamp: 2; // 行数制限
+      }
+
+      // @media screen and (min-width: 800px) and (max-width: 1060px) {
+      //   display: none;
+      // }
+    }
+
+    .c-arrow-txtlink {
+      align-self: flex-end;
+      justify-self: end;
+    }
+  }
+}

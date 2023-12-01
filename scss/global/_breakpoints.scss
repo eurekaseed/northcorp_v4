@@ -1,0 +1,30 @@
+@use "sass:map";
+
+// global > breakpoint
+// ------------------------------
+$breakpoints: (
+  "sm": 600px,
+  "md": 800px,
+  "md1000": 1000px,
+  "lg": 1400px,
+  "xl": 2800px,
+);
+
+@mixin mq($breakpoint: sm) {
+  @media screen and (min-width: #{map-get($breakpoints, $breakpoint)}) {
+    @content;
+  }
+}
+
+@mixin mq_max($breakpoint: sm) {
+  @media screen and (max-width: #{map-get($breakpoints, $breakpoint)}) {
+    @content;
+  }
+}
+
+// lg(1080px)以上かつハイレゾ対応背景
+@mixin mqx2($breakpoint: lg) {
+  @media screen and (min-width: #{map-get($breakpoints, $breakpoint)}) and (min-resolution: 2dppx) {
+    @content;
+  }
+}

@@ -1,0 +1,15 @@
+@use "foundation";
+@use "utility";
+@use "component";
+@use "project";
+@use "layout";
+@use "pages";
+
+// TODO:productのp-pickup〜のボタン変える
+
+// TODO:下層ページにパンくずつける：c-title作り直し：
+// .subpage .p-keyvisual .wrap-pagetitle =>  .subpage .p-keyvisual .inner
+// TODO:下層ページのベース：SP調整
+// TODO:tomitaコーディングから使えそうなもの下層ページに移してnotion
+// TODO:c-btn__pdf
+// TODO:.c-categoryTagをメディアクエリから外してオリジナルとして調整

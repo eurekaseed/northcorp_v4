@@ -1,0 +1,13 @@
+.tes {
+    display: inline-block;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    margin: 0 auto;
+    border: 2px solid #000000;
+    width: 70%;
+    cursor: pointer;
+}

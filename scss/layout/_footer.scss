@@ -1,0 +1,231 @@
+@use "../global" as g;
+
+/*!
+layout > footer > footer
+------------------------------
+*/
+
+/*!
+フォントサイズ
+*/
+$baseFontSize: 16;
+
+@function rem($pixels) {
+  @return calc($pixels / $baseFontSize * 1rem);
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+.footer {
+  display: block;
+  background: url(/img/bk_footer.svg) no-repeat;
+  background-size: 70%;
+  letter-spacing: 0.08em;
+
+  @include g.mq(md) {
+    background-size: 40%;
+  }
+
+  @include g.mq_max(md) {
+    .margin-section {
+      padding-bottom: 0 !important;
+    }
+  }
+
+  .flex {
+    display: flex;
+    flex-direction: column;
+
+    & > * {
+      padding-top: var(--contents-gap);
+      padding-bottom: var(--contents-gap);
+    }
+
+    .footerNavi {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+
+      @media screen and (min-width: 900px) {
+        grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+      }
+
+      @media screen and (min-width: 1320px) {
+        grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+      }
+
+      gap: 2rem 1rem;
+      text-align: right;
+      padding-bottom: var(--contents-gap);
+
+      @include g.mq_max(md) {
+        display: none;
+      }
+
+      a:hover {
+        opacity: 0.6;
+      }
+
+      & > li {
+        font-size: 1.2rem;
+        font-weight: bold;
+
+        & > a {
+          border-bottom: solid 1px #707070;
+          display: block;
+          padding-bottom: 0.5rem;
+          margin-bottom: 0.5rem;
+        }
+
+        li {
+          font-weight: normal;
+          font-size: 1rem;
+          line-height: 2.4;
+        }
+      }
+    }
+
+    address {
+      @include g.mq_max(md) {
+        text-align: center;
+        padding-bottom: var(--contents-gap);
+      }
+
+      span {
+        display: block;
+      }
+
+      .company-name {
+        font-size: 1.4rem;
+        font-weight: bold;
+      }
+
+      .company-address {
+        font-size: 1rem;
+
+        strong {
+          font-size: 1.2rem;
+        }
+      }
+
+      .notes {
+        font-size: 0.8rem;
+      }
+
+      .nowrapBr {
+        @include g.mq_max(md) {
+          display: none;
+        }
+
+        @include g.mq(md) {
+          display: initial;
+        }
+
+        @media screen and (min-width: 1160px) {
+          display: none;
+        }
+      }
+    }
+
+    @include g.mq(md) {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      gap: 8%;
+
+      address {
+        width: 34%;
+
+        .company-name {
+          font-size: 1.6rem;
+          margin-bottom: 0.6rem;
+        }
+
+        .company-address {
+          font-size: 1.2rem;
+        }
+
+        .telNo {
+          font-size: 1.4rem;
+        }
+
+        .notes {
+          font-size: 1rem;
+        }
+      }
+
+      .footerNavi {
+        flex: 1;
+      }
+    }
+  }
+
+  .g-siteFooter {
+    width: 100%;
+    font-size: 1rem;
+    line-height: 2.6;
+    color: #fff;
+    background-color: var(--color-footer-bar);
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+
+    p {
+      text-align: center;
+    }
+
+    @include g.mq_max(md) {
+      padding-top: 1.2rem;
+      padding-bottom: 0.5rem;
+      font-size: 0.9rem;
+      line-height: 3;
+      background: none;
+      color: var(--color-key);
+    }
+
+    @media screen and (min-width: 1080px) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    ul {
+      display: flex;
+      padding: 0;
+
+      a {
+        display: inline-flex;
+      }
+
+      a:hover {
+        color: var(--color-bg-button__hover);
+      }
+
+      @include g.mq_max(md) {
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        margin-bottom: 1.2rem;
+        border-top: solid 1px var(--color-key);
+
+        li {
+          display: block;
+          width: 100%;
+          border-bottom: solid 1px var(--color-key);
+          text-align: center;
+        }
+      }
+
+      @include g.mq(md) {
+        flex-direction: row;
+        justify-content: space-around;
+      }
+
+      @media screen and (min-width: 1080px) {
+        justify-content: flex-start;
+        gap: 1.5em;
+      }
+    }
+  }
+}

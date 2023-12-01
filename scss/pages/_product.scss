@@ -1,0 +1,23 @@
+@use "../global" as g;
+
+/*!
+page > product
+------------------------------
+*/
+
+// .kvimg ==> p-keyvisual
+
+.features {
+  padding-top: var(--gap);
+  ul {
+    margin: var(--gap);
+  }
+
+  li {
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 200%;
+    color: var(--color-key);
+    border-bottom: solid 1px var(--color-key);
+  }
+}

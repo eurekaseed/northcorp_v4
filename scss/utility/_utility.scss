@@ -1,0 +1,96 @@
+@use "../global" as g;
+
+/*!
+utility > utility
+------------------------------
+*/
+// sp.pc表示
+
+.u-spOnly {
+  @include g.mq() {
+    display: none !important;
+  }
+}
+
+.u-pcOnly {
+  display: none !important;
+
+  @include g.mq() {
+    display: block !important;
+  }
+}
+
+// すべてのリンクの電話番号対応
+@media (min-width: 768px) {
+  a[href^="tel:"] {
+    pointer-events: none;
+  }
+}
+
+// 隠しテキスト
+.u-visually-hidden {
+  position: absolute !important;
+  white-space: nowrap !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  border: 0 !important;
+  padding: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  margin: -1px !important;
+}
+
+// (md):800以下のみblock表示
+.MDonly {
+  display: block;
+
+  @include g.mq(md) {
+    display: none;
+  }
+}
+
+// 左寄せテキスト
+.u-txtL {
+  text-align: left;
+}
+
+// 簡易な横並び
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// 簡易なタテ並び
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.lists {
+  li {
+    list-style: disc;
+    list-style-position: inside;
+  }
+}
+.numberlists {
+  li {
+    list-style: decimal;
+    list-style-position: inside;
+  }
+}
+
+dl.lists {
+  dt {
+    font-weight: bold;
+
+    &::before {
+      content: "・";
+    }
+  }
+  dd {
+    margin-bottom: var(--min-gap);
+  }
+}

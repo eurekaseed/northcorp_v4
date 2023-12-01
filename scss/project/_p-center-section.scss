@@ -1,0 +1,26 @@
+@use "../global" as g;
+
+/*!
+project > p-center-section
+------------------------------
+*/
+
+/*
+フォントサイズ計算 */
+$baseFontSize: 16;
+
+@function rem($pixels) {
+  @return calc($pixels / $baseFontSize * 1rem);
+}
+
+/*!
+トップページ センタリングコンテンツ */
+
+.p-center-section {
+  padding-top: var(--contents-gap);
+  padding-bottom: var(--contents-gap);
+
+  @include g.mq(md) {
+    text-align: center;
+  }
+}

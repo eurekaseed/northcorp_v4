@@ -1,0 +1,15 @@
+/*!
+global > content-width
+containerのmax-width
+------------------------------
+*/
+
+:root {
+    /*--width-content-s: 920px;*/
+    --width-content: 1440px;
+}
+
+.siteWidth {
+    max-width: 1920px;
+    margin-right: auto;
+}

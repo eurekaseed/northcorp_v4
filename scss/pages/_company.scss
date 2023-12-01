@@ -1,0 +1,52 @@
+@use "../global" as g;
+
+/*!
+page > company
+------------------------------
+*/
+
+// 会社概要
+.c_overviewDL {
+  dl {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    // justify-content: space-between;
+
+    dt {
+      width: 100%;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      margin-bottom: 0;
+      padding-left: 1rem;
+      font-weight: 700;
+      border-bottom: #000 solid 1px;
+    }
+    dd {
+      width: 100%;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+      padding-left: 2rem;
+      font-weight: 400;
+      border-bottom: #ccc solid 1px;
+    }
+    @include g.mq_max() {
+      dt {
+        background-color: var(--color-bg-gray);
+      }
+    }
+    @include g.mq() {
+      display: flex;
+      flex-direction: row;
+      dt {
+        width: clamp(12rem, 20%, 12vw);
+      }
+      dd {
+        //width: calc(100% - 12vw);
+        flex-grow: 1;
+      }
+    }
+  }
+}
+
+// アクセス はレイアウト都合上_main.scss

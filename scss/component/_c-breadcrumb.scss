@@ -1,0 +1,48 @@
+@use "../global" as g;
+
+/*!
+component > breadcrumb
+------------------------------
+*/
+
+.c-breadcrumb-arrow {
+  width: 1rem;
+  height: 1rem;
+  border-top: 1px solid var(--color-key);
+  border-right: 1px solid var(--color-key);
+  transform: rotate(45deg);
+  right: 0.5rem;
+}
+
+.c-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  list-style: none;
+  font-weight: bold;
+  color: var(--color-key);
+
+  li {
+    position: relative;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    font-size: 1.2rem;
+    padding-right: 2.5rem;
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 0.6rem;
+      height: 0.6rem;
+      color: var(--color-key);
+      border-top: solid 1px;
+      border-right: solid 1px;
+      top: 0.9rem;
+      right: 1rem;
+      transform: rotate(45deg);
+    }
+    &:last-of-type:after {
+      display: none; /* 最後のみ非表示 */
+    }
+  }
+}

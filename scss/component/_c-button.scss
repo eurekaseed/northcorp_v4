@@ -1,0 +1,296 @@
+@use "../global" as g;
+
+/*!
+component > button
+------------------------------
+*/
+
+/*
+フォントサイズ計算 */
+$baseFontSize: 16;
+
+@function rem($pixels) {
+  @return calc($pixels / $baseFontSize * 1rem);
+}
+
+%btnBase {
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+%btnColor {
+  background-color: var(--color-bg-button);
+  color: #fff;
+
+  &:hover {
+    background-color: var(--color-bg-button__hover);
+  }
+}
+
+%btnColor__white {
+  background-color: #fff;
+  color: var(--color-bg-button);
+
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+%btn__afterBase {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+%c-btn-arrow {
+  width: 18px;
+  height: 18px;
+  border-top: 4px solid #fff;
+  border-right: 4px solid #fff;
+  transform: rotate(45deg);
+  right: 20px;
+
+  @media screen and (max-width: 300px) {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+%c-btn-pdf {
+  width: 18px;
+  height: 18px;
+  border-top: 4px solid #fff;
+  border-right: 4px solid #fff;
+  transform: rotate(45deg);
+  right: 20px;
+
+  @media screen and (max-width: 300px) {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+%c-btn-arrow__white {
+  width: 18px;
+  height: 18px;
+  border-top: 4px solid var(--color-bg-button);
+  border-right: 4px solid var(--color-bg-button);
+  transform: rotate(45deg);
+  right: 20px;
+
+  @media screen and (max-width: 300px) {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.c-btn {
+  @extend %btnBase;
+  @extend %btnColor;
+  padding: 1rem 1.2rem;
+  width: 90%;
+  font-size: clamp(1.1rem, 2.6vw, 1.3rem);
+  margin: 2rem auto 0 auto;
+  z-index: 0;
+  opacity: 1;
+
+  &::after {
+    @extend %btn__afterBase;
+    @extend %c-btn-arrow;
+  }
+
+  @media screen and (min-width: 340px) {
+    // width: clamp(100px, 70%, 90vw);
+    width: clamp(100px, 90vw, 450px);
+  }
+
+  @media screen and (min-width: 1080px) {
+    width: clamp(100px, 45%, auto);
+  }
+}
+
+.c-btn__pdf {
+  @extend %btnBase;
+  @extend %btnColor;
+  padding: 1rem 1.2rem;
+  width: 90%;
+  font-size: clamp(1.1rem, 2.6vw, 1.3rem);
+  margin: 2rem auto 0 auto;
+  z-index: 0;
+  opacity: 1;
+
+  &::after {
+    content: " -- ";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+
+  @media screen and (min-width: 340px) {
+    // width: clamp(100px, 70%, 90vw);
+    width: clamp(100px, 90vw, 450px);
+  }
+
+  @media screen and (min-width: 1080px) {
+    width: clamp(100px, 45%, 90vw);
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .c-btn {
+    display: block;
+  }
+
+  .c-btn + .c-btn {
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .c-btn + .c-btn {
+    margin-left: 30px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.c-btn__headerContact {
+  @extend %btnBase;
+  @extend %btnColor;
+  display: inline-flex;
+  padding: 10px 10px 10px 0;
+  width: max(16%, 165px);
+  height: 151px;
+  font-size: clamp(1rem, 1.7vw, 1.2rem);
+
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
+
+  &::after {
+    @extend %btn__afterBase;
+    width: 1.2vw;
+    height: 1.2vw;
+    border-top: 4px solid #fff;
+    border-right: 4px solid #fff;
+    transform: rotate(45deg);
+    right: 0.8vw;
+  }
+}
+
+.c-btn__footerContact {
+  @extend %btnBase;
+  letter-spacing: 0.03em;
+  padding: 1.4rem 1.2rem 1.4rem 5rem;
+
+  @include g.mq(md) {
+    padding: 1.4rem 1.2rem 1.4rem 3.6rem;
+  }
+
+  width: 100%;
+  max-width: 400px;
+  font-size: clamp(1rem, 1.6vw, 1.3rem);
+  margin: 2rem auto 0 auto;
+  z-index: 0;
+  opacity: 1;
+  background: var(--color-bg-button) url(/img/bk_footercontact.svg) left 2rem
+    center no-repeat;
+  color: #fff;
+
+  @media screen and (min-width: 1160px) and (max-width: 1400px) {
+    background-position: left 1rem center;
+  }
+
+  &:hover {
+    background-color: var(--color-bg-button__hover);
+  }
+
+  .nowrap {
+    white-space: nowrap;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .c-btn__headerContact {
+    display: none;
+  }
+}
+
+.c-btn__contact-section {
+  @extend %btnBase;
+  @extend %btnColor__white;
+  display: inline-flex;
+  padding: 1rem;
+  width: 100%;
+  font-size: clamp(1.1rem, 2.6vw, 1.3rem);
+  margin: 2rem auto 0 auto;
+
+  &::after {
+    @extend %btn__afterBase;
+    //content: "";
+    @extend %c-btn-arrow__white;
+    right: 5vw;
+
+    @media screen and (max-width: 900px) {
+      right: 5%;
+    }
+  }
+}
+
+.c-btn__inLineupcard {
+  @extend %btnBase;
+  @extend %btnColor;
+  position: static !important;
+  padding: 10px 0;
+  width: 100%;
+  font-size: clamp(1rem, 1.6vw, 1.5rem);
+  z-index: 0;
+  opacity: 1;
+
+  span {
+    position: relative;
+    padding-right: 35px;
+    padding-left: 15px;
+    white-space: nowrap;
+  }
+
+  span::after {
+    @extend %btn__afterBase;
+    width: 14px;
+    height: 14px;
+    border-top: 3px solid #fff;
+    border-right: 3px solid #fff;
+    transform: rotate(45deg);
+    right: 10px;
+  }
+}
+
+.c-arrow-btn {
+  align-self: end;
+  justify-self: end;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--color-bg-button);
+  color: #fff;
+  padding: 0.8rem 1rem 0.8rem 0.7rem;
+
+  &::after {
+    content: "";
+    margin: auto;
+    width: 12px;
+    height: 12px;
+    border-top: 3px solid #fff;
+    border-right: 3px solid #fff;
+    transform: rotate(45deg);
+  }
+}

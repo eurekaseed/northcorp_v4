@@ -1,0 +1,204 @@
+@use "../global" as g;
+
+/*!
+layout > main
+------------------------------
+
+*/
+
+// 固定ヘッダー分のマージン
+main {
+  margin-top: 60px;
+
+  @media screen and (min-width: 1000px) {
+    margin-top: 150px;
+    position: relative;
+  }
+}
+
+.centeringBox {
+  @include g.mq(md) {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.section {
+  padding-bottom: var(--contents-gap);
+}
+
+// wrap：中コンテンツ間の上下間隔あり
+.clm-gap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--contents-gap);
+}
+.clm-gap__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+// ボタンとの間など
+.min-gap {
+  margin-bottom: var(--min-gap);
+}
+
+.top-gap {
+  padding-top: var(--gap);
+}
+
+.bottom-gap {
+  padding-bottom: var(--gap);
+}
+
+// ボタン横並びのラップブロックなど
+.row1000 {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.3vw;
+  @include g.mq(md1000) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+// 横並びカラム
+%rowClm {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  flex-direction: column;
+  // align-items: center;
+  gap: 5vw;
+}
+.row_clm {
+  @extend %rowClm;
+  @include g.mq() {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+// 左右逆レイアウト
+.row_rev_clm {
+  @extend %rowClm;
+  @include g.mq() {
+    flex-direction: row-reverse;
+    align-items: flex-start;
+  }
+}
+
+.row_rev_clm,
+.row_clm {
+  .width_60p,
+  .txtbox {
+    width: 100%;
+    @include g.mq() {
+      width: 60%;
+    }
+  }
+}
+
+.width_40p {
+  width: 100%;
+  @include g.mq() {
+    width: 40%;
+  }
+}
+
+.flex1 {
+  width: 100%;
+  @include g.mq() {
+    flex: 1;
+  }
+}
+
+.txtbox > * {
+  margin-bottom: var(--min-gap);
+}
+
+/*!
+アクセス：％継承あるので_main.scssから離さない */
+.row_clm__map {
+  @extend %rowClm;
+  width: 100%;
+  .infotxt,
+  .map {
+    width: 100%;
+  }
+  .infotxt dl {
+    margin: 1rem 0;
+    dt {
+      font-weight: bold;
+    }
+  }
+  @include g.mq(md1000) {
+    flex-direction: row;
+    align-items: flex-start;
+    .infotxt {
+      width: 40%;
+    }
+    .map {
+      width: 60%;
+    }
+  }
+}
+
+// 更新情報の読み込み
+.updates .entry {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  padding: 1rem 0;
+  border-bottom: solid 1px var(--color-font-base);
+  position: relative;
+
+  & > * {
+    display: block;
+  }
+}
+
+/*!
+フォントサイズ
+------------------------------
+*/
+
+// トップページ上部ピックアップ
+.toppage .pickup {
+  .entry_date,
+  .entry_title {
+    font-size: 1rem;
+
+    @include g.mq() {
+      font-size: max(1.4vw, 1.2rem);
+      padding: 0.5rem;
+    }
+  }
+}
+
+// トップページ製品ピックアップ
+// 記事タイトルと日付 p-lineup-pickup
+.p-lineup-pickup {
+  a.entry_title {
+    font-size: max(1.5vw, 1.1rem);
+    font-weight: bold;
+
+    @include g.mq(lg) {
+      font-size: 1.2rem;
+    }
+
+    .entry_date {
+      font-size: max(1.2vw, 0.9rem);
+
+      @media screen and (min-width: 1200px) {
+        font-size: 1rem;
+      }
+    }
+  }
+}

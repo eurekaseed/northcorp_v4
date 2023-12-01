@@ -1,0 +1,62 @@
+@use "../global" as g;
+
+/*!
+project > p-CTA-section
+------------------------------
+*/
+
+/*
+フォントサイズ計算 */
+$baseFontSize: 16;
+
+@function rem($pixels) {
+  @return calc($pixels / $baseFontSize * 1rem);
+}
+
+/*!
+お問い合わせセクション */
+.p-CTA-section {
+  background-color: var(--color-bg-button);
+  color: #fff;
+  padding-top: var(--contents-gap);
+  padding-bottom: var(--contents-gap);
+  font-weight: bold;
+
+  .flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5vw;
+
+    .contents {
+      width: 55%;
+
+      .text {
+        font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+        letter-spacing: 0.08em;
+      }
+    }
+
+    h1 {
+      flex: 1;
+    }
+  }
+
+  @include g.mq_max(md) {
+    display: none;
+  }
+}
+
+/*!
+コンテンツ内のお問い合わせセクション */
+
+.p-CTA-inner {
+  background-color: var(--color-bg-button);
+  color: #fff;
+  padding: var(--gap);
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}

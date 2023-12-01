@@ -1,0 +1,16 @@
+/*!
+global > g-block
+　コンテンツブロック共通の変数
+------------------------------
+*/
+
+:root {
+  --block-padding: 64px 0 0; // padding-topのみ
+  --block-padding-s: 1rem 0 0; // padding-topのみ
+  --parts-mTop: 80px;
+  --min-gap: 1.2rem;
+  --gap: 3vw;
+  --gap-sp: 2rem;
+  --contents-gap: max(7vw, 3rem);
+  --contents-gap-lg: 11vw;
+}

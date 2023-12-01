@@ -1,0 +1,242 @@
+@use "../global" as g;
+
+/*!
+page > top
+------------------------------
+*/
+
+.toppage {
+  .pickup {
+    width: 100%;
+    background-color: var(--color-bg-gray);
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    position: relative;
+
+    @include g.mq() {
+      display: flex;
+      justify-items: center;
+
+      & > * {
+        display: flex;
+        align-items: center;
+      }
+
+      .tag_margin {
+        margin: 2vw;
+      }
+
+      .btn-arrow {
+        margin: 0 1vw;
+      }
+    }
+
+    @include g.mq_max() {
+      display: grid;
+      grid-template-columns: 110px 1fr 30px;
+      grid-template-rows: 3rem 2.6rem 1fr;
+      line-height: 2;
+
+      .pickup-title {
+        grid: 1/2;
+        order: 1;
+        justify-self: center;
+      }
+
+      .cateTag_grid {
+        order: 2;
+        grid-column: 2/4;
+        grid-row: 1/2;
+        align-items: center;
+      }
+
+      .entry_date {
+        grid-column: 1/4;
+        grid-row: 2/3;
+        order: 3;
+        align-self: end;
+      }
+
+      .entry_title {
+        grid-column: 1/3;
+        grid-row: 3/4;
+        order: 4;
+        align-self: start;
+        padding-bottom: 0.5rem;
+      }
+
+      .btn-arrow {
+        grid-column: 3/4;
+        grid-row: 3/4;
+        order: 5;
+        justify-self: start;
+        align-self: start;
+        margin-bottom: 0.8rem;
+
+        img {
+          width: 14px !important;
+        }
+      }
+    }
+
+    h2 {
+      background-color: var(--color-bg-button);
+      color: #fff;
+      font-family: var(--font-family-english);
+      font-weight: bold;
+
+      @include g.mq() {
+        width: clamp(6rem, 18%, 290px);
+        height: auto;
+        font-size: max(2.4vw, 1.2rem);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        letter-spacing: 0.08em;
+        text-align: center;
+      }
+
+      @include g.mq_max() {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        letter-spacing: 0.2em;
+        width: 8rem;
+      }
+    }
+
+    .entry_date,
+    .entry_title {
+      @include g.mq() {
+        position: relative;
+        padding: 0.5rem;
+      }
+
+      @include g.mq_max() {
+        display: block;
+        margin-left: 2.4vw;
+      }
+    }
+
+    .entry_date {
+      margin-left: 2.4vw;
+    }
+
+    a:hover svg {
+      fill: var(--color-bg-button__hover);
+    }
+  }
+
+  // トップページ 「我々のミッション」セクション
+  .mission {
+    background: url(/img/bk_mission.svg) top right no-repeat;
+    background-size: contain;
+  }
+
+  // トップページ 「製品への自信」セクション
+  .ourproducts {
+    background: url(/img/bk_ourproducts.svg) top left no-repeat;
+    background-size: 90%;
+  }
+
+  // トップページ 製品ラインナップセクション
+  .lineup {
+    background: var(--color-bg-gray) url(/img/bk_lineup_SP.svg) top right
+      no-repeat;
+    background-size: 70%;
+
+    @include g.mq(md) {
+      background: var(--color-bg-gray) url(/img/bk_lineup.svg) top right
+        no-repeat;
+      background-size: 70%;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      // @media screen and (min-width: 900px)
+      @include g.mq(md) {
+        flex-direction: row-reverse;
+        gap: 5%;
+        align-items: stretch;
+
+        .wrap-lineup-pickup {
+          width: 33%;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .productBtns {
+          width: 62%;
+        }
+      }
+
+      .productBtns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.6rem;
+        align-items: stretch;
+        margin: 0;
+
+        @media screen and (min-width: 450px) {
+          gap: 3vw 4%;
+        }
+
+        @include g.mq(md) {
+          gap: 1.6vw 4%;
+          align-content: stretch;
+        }
+
+        & > * {
+          width: 100%;
+          align-self: stretch;
+
+          @media screen and (min-width: 450px) {
+            width: 48%;
+          }
+        }
+      }
+    }
+  }
+
+  // トップページ 最新ニュースセクション
+  .news {
+    background: var(--color-bg-gray) url(/img/bk_news.svg) bottom right
+      no-repeat;
+    background-size: 40%;
+  }
+
+  // トップページ 会社情報セクション
+  .company {
+    background: url(/img/bk_company.svg) no-repeat;
+    background-size: 60%;
+  }
+}
+
+/*!
+フォントサイズ
+*/
+$baseFontSize: 16;
+
+@function rem($pixels) {
+  @return calc($pixels / $baseFontSize * 1rem);
+}
+
+.top_KV .pagetitle {
+  font-size: max(6vw, 1.4rem);
+  font-weight: bold;
+
+  @include g.mq() {
+    font-size: 3.6vw;
+  }
+}
+
+.test {
+  font-size: rem(100); //rem100
+  font-size: rem(5); //rem5
+  font-size: rem(20);
+  /*! 20 */
+  margin-right: rem(47);
+  /*! 47 */
+}

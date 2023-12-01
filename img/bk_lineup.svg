@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="3782" viewBox="0 0 1920 3782">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="bg-gray" width="1920" height="3782" transform="translate(0 1765)" fill="#f3f3f3"/>
+    </clipPath>
+  </defs>
+  <g id="bk_lineup" transform="translate(0 -1765)">
+    <rect id="bg-gray-2" data-name="bg-gray" width="1920" height="3782" transform="translate(0 1765)" fill="#f3f3f3"/>
+    <g id="マスクグループ_7" data-name="マスクグループ 7" clip-path="url(#clip-path)">
+      <g id="linewhite" transform="translate(481.001 695.021)">
+        <rect id="長方形_125" data-name="長方形 125" width="67.876" height="3155.61" transform="matrix(0.5, -0.866, 0.866, 0.5, -0.777, 733.961)" fill="#fff"/>
+        <rect id="長方形_150" data-name="長方形 150" width="67.876" height="3155.61" transform="matrix(0.5, -0.866, 0.866, 0.5, -762, 2317.683)" fill="#fff"/>
+        <rect id="長方形_151" data-name="長方形 151" width="67.876" height="3155.61" transform="matrix(0.5, -0.866, 0.866, 0.5, -762, 4075.374)" fill="#fff"/>
+        <rect id="長方形_126" data-name="長方形 126" width="67.872" height="2039.745" transform="translate(711.418 1115.862)" fill="#fff"/>
+        <rect id="長方形_127" data-name="長方形 127" width="67.872" height="1747.06" transform="translate(-160.023 2666.638)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

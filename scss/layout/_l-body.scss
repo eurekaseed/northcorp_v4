@@ -1,0 +1,40 @@
+@use "../global" as g;
+
+/*!
+layout > l-body
+下層ページのコンテンツブロック
+------------------------------
+*/
+
+// カラムコンテンツ
+.l-body__oneClm,
+.l-body__twoClm {
+  padding-top: var(--contents-gap-lg);
+  padding-bottom: var(--contents-gap-lg);
+  gap: var(--contents-gap);
+}
+
+// 背景の形：トップページ セクション背景と画像を合わせる
+.bk-mission {
+  background: url(/img/bk_mission.svg) top right no-repeat;
+}
+
+.bk-ourproducts {
+  background: url(/img/bk_ourproducts.svg) top left no-repeat;
+  // background-size: 90%;
+}
+
+//
+.blockPadding {
+  padding-top: 1vw;
+
+  @include g.mq() {
+    padding: var(--block-padding);
+  }
+}
+
+// mqで分ける場合、できればmq設定ごとパッケージで呼び出したいけど、mqが@mixinなのでmixinにできず。// とりあえずclass足すけどclassを付け忘れの可能性が残る
+// もしくはコンテンツブロックのクラスの中でmq設定、変数のみ呼び出す
+
+// mqで分けない場合コンテンツブロックに変数のみ　--pTop-block: 64px;
+// padding-top: var(--pTop-block);書き方はめんどくさくなるけど数字を一括管理できる

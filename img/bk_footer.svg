@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="745" height="871" viewBox="0 0 745 871">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="長方形_137" data-name="長方形 137" width="745" height="871" transform="translate(0 6246)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="bk_footer" transform="translate(0 -6246)" clip-path="url(#clip-path)">
+    <g id="bklogo-gray" transform="translate(-163.91 6080.292)">
+      <path id="パス_284" data-name="パス 284" d="M0,629.956l218.414,126.1V252.127L0,126.027Z" transform="translate(0 147.549)" fill="#f3f3f3"/>
+      <path id="パス_285" data-name="パス 285" d="M113.413,695.434l202.7,117.028L752.528,560.5,113.413,191.506Z" transform="translate(132.78 224.209)" fill="#f3f3f3"/>
+      <path id="パス_286" data-name="パス 286" d="M311.413,561.07,533.191,689.115V188.45L311.413,60.4Z" transform="translate(364.592 70.72)" fill="#f3f3f3"/>
+      <path id="パス_287" data-name="パス 287" d="M440.639,0,7.048,250.335,639.974,615.753V115.086Z" transform="translate(8.252 0)" fill="#f3f3f3"/>
+    </g>
+  </g>
+</svg>

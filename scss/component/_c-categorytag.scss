@@ -1,0 +1,67 @@
+@use "../global" as g;
+
+/*!
+component > categorytag
+------------------------------
+*/
+
+/*!
+フォントサイズ
+*/
+$baseFontSize: 16;
+
+@function rem($pixels) {
+  @return calc($pixels / $baseFontSize * 1rem);
+}
+
+/*! カテゴリタグ */
+
+%categoryTagBase {
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  display: inline-block;
+  color: #fff;
+  background-color: var(--color-bg-button);
+  white-space: nowrap;
+}
+
+.c-categoryTag {
+  @extend %categoryTagBase;
+  padding: 0.2rem 1.8vw;
+  font-size: max(1.4vw, 1rem);
+}
+
+// ニュース一覧内のタグ
+.c-cateTag__news {
+  @extend %categoryTagBase;
+  padding: 0.2rem;
+  @include g.mq_max(md) {
+    padding: 0.3rem 1rem;
+  }
+  font-size: 1rem;
+  width: 10rem;
+  text-align: center;
+
+  &:hover {
+    color: #fff;
+    background-color: var(--color-bg-button__hover);
+  }
+}
+
+// トップページ ピックアップセクション
+.c-cateTag__pickup {
+  @extend %categoryTagBase;
+  @include g.mq() {
+    padding: 0.2rem 1.8vw;
+    font-size: max(1.4vw, 1rem);
+  }
+
+  @include g.mq_max() {
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    font-size: 1rem;
+    padding: 0.2rem 1rem;
+    background-color: #dfe7ed;
+    color: var(--color-bg-button);
+  }
+}

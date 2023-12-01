@@ -1,0 +1,91 @@
+@use "../global" as g;
+
+/*!
+page > common
+------------------------------
+*/
+
+/*!
+フォントサイズ
+*/
+$baseFontSize: 16;
+
+@function rem($pixels) {
+  @return calc($pixels / $baseFontSize * 1rem);
+}
+
+// カテゴリナビ
+
+.categoryNavi {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding-bottom: var(--contents-gap);
+
+  h2 {
+    font-weight: bold;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem 2rem;
+
+    // @media screen and (min-width: 900px)
+    @include g.mq(md) {
+      flex-direction: row;
+      flex: 1;
+      justify-content: start;
+    }
+  }
+}
+
+@include g.mq() {
+  .entrypage .imgbox {
+    width: 60%;
+  }
+}
+
+.pagenation {
+  padding: var(--contents-gap);
+  ul {
+    font-weight: bold;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.8rem;
+
+    .c-arrow-btn,
+    li.current,
+    li a {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    li.current {
+      align-self: end;
+      justify-self: end;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-color: #fff;
+      color: var(--color-bg-button);
+      border: solid 2px var(--color-bg-button);
+      padding: 0.25rem 0.8rem;
+    }
+
+    li a {
+      align-self: end;
+      justify-self: end;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-color: var(--color-bg-button);
+      color: #fff;
+      padding: 0.4rem 1rem;
+    }
+  }
+}
